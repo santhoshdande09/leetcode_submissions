@@ -1,14 +1,27 @@
-import java.util.*;
 class Solution {
-    public int[] sortedSquares(int[] nums) {
-        int []ans = new int[nums.length];
-        int []val = new int[nums.length];
-        for(int i = 0; i < nums.length; i++)
-        {
-            ans[i] = nums[i] * nums[i];
+    // brutforce approach
+    /*public int[] sortedSquares(int[] nums) {
+        for(int i=0; i<nums.length; i++){
+            nums[i] = nums[i]*nums[i];
         }
-        Arrays.sort(ans);
-        
-        return ans;
-    }
+        Arrays.sort(nums);
+        return nums;
+    }*/
+
+    public int[] sortedSquares(int[] nums) {
+        int n = nums.length;
+        int []res = new int[n];
+        int i = 0;
+        int j = n - 1;
+        for(int p=n-1 ; p>=0; p--){
+            if(Math.abs(nums[i]) > Math.abs(nums[j])) {
+                res[p] = nums[i]*nums[i];
+                i++; 
+            } else {
+                res[p] = nums[j]*nums[j];
+                j--;
+            }
+        }
+        return res;
+    }    
 }
