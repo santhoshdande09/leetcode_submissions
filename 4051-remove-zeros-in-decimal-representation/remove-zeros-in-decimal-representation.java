@@ -11,7 +11,7 @@ class Solution {
                 }
             }
 
-            long result = Long.parseLong(san.toString());
-        return result;
+            return Long.parseLong(san.toString());
+        
     }
 }
