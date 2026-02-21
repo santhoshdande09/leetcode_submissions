@@ -1,30 +1,24 @@
 class Solution {
-    public int countSetBits(int n)
-    {
-        int count = 0;
-            while(n > 0)
-            {
-                n = n & (n - 1);
-                count++;
-            }
-            return count;
+    static HashSet<Integer> st = new HashSet<>();
+    static{
+    st.add(2);
+    st.add(3);
+    st.add(5);
+    st.add(7);
+    st.add(11);
+    st.add(13);
+    st.add(17);
+    st.add(19);
+    st.add(23);
+    st.add(29);
     }
-    public boolean isPrime(int n)
-    {
-        if(n < 2)
-            return false;
-        for(int i = 2; i <= Math.sqrt(n); i++)
-        {
-            if(n % i == 0) return false;
-        }
-        return true;
-    }
+
     public int countPrimeSetBits(int left, int right) {
         int ans = 0;
         for(int i = left; i <= right; i++)
         {
-            int val = countSetBits(i);
-            if(isPrime(val))
+            int val = Integer.bitCount(i);
+            if(st.contains(val))
                 ans++;
         }
         return ans;
