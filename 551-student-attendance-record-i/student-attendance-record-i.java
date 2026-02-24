@@ -1,6 +1,6 @@
 class Solution {
     public boolean checkRecord(String s) {
-        int n = s.length();
+        /*int n = s.length();
         int absent = 0;
         int currentLength= 1;
         int maxLate = 0;
@@ -19,6 +19,10 @@ class Solution {
         }
         if(absent < 2 && maxLate < 3)
             return true;
-            return false;
+            return false;*/
+
+
+            // approach 2
+        return !(s.contains("LLL")) && (s.indexOf('A') == s.lastIndexOf('A'));
     }
 }
