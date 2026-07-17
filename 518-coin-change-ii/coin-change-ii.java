@@ -3,9 +3,9 @@ class Solution {
         int[] dp = new int[amount + 1];
         dp[0] = 1;
 
-        for (int coin : coins) {
-            for (int i = coin; i <= amount; i++) {
-                dp[i] += dp[i - coin];
+        for (int k : coins) {
+            for (int i = k; i <= amount; i++) {
+                dp[i] += dp[i - k];
             }
         }
 
